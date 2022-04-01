@@ -23,7 +23,7 @@ class ComicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         return view('comics.create');
     }
@@ -38,7 +38,7 @@ class ComicsController extends Controller
     {
         $data = $request->all();
 
-        $newComic = new Comic;
+        $newComic = new Comic();
 
         // $newComic->title = $data['title'];
         // $newComic->description = $data['description'];
@@ -50,8 +50,9 @@ class ComicsController extends Controller
         // usando il metodo fillable semplifico così: 
 
         $newComic->fill($data);
+        $newComic->save();
 
-        return redirect()->route('comics.show', ['comic' => $newComic->id]);
+        return redirect()->route('comics.index');
 
     }
 
