@@ -14,7 +14,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        return view('comics.index');
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -22,9 +23,9 @@ class ComicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -35,7 +36,23 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newComic = new Comic;
+
+        // $newComic->title = $data['title'];
+        // $newComic->description = $data['description'];
+        // $newComic->price = $data['price'];
+        // $newComic->series = $data['series'];
+        // $newComic->sale_date = $data['sale_date'];
+        // $newComic->save();
+
+        // usando il metodo fillable semplifico così: 
+
+        $newComic->fill($data);
+
+        return redirect()->route('comics.show', ['comic' => $newComic->id]);
+
     }
 
     /**
@@ -44,9 +61,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        return view('comics.show' , compact('comic'));
     }
 
     /**
