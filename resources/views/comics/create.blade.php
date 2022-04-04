@@ -6,7 +6,7 @@
 
 
 
-<div class="container p-2">
+<div class="container p-2 fadein">
     <form action="{{route('comics.store')}}" class="form-floating mb-3" method="post">
 
         @csrf

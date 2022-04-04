@@ -51,7 +51,7 @@
                                @csrf
                                 @method('DELETE') 
                                 <span>
-                                    <button class="btn btn-danger" onclick="return confirm('Sei sicuro?')" type="submit" value=""> 
+                                    <button class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?')" type="submit" value=""> 
                                         <i class="fa-solid fa-trash-can"> </i>
                                     </button>
                                 </span>
@@ -66,5 +66,4 @@
     </div>
 
 
-    <script type="text/javascript" src="{{asset('js/app.js') }}"></script>
 @endsection

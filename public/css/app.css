@@ -15214,3 +15214,12 @@ fieldset:disabled .btn {
   clip: auto;
 }
 
+.fadein {
+  opacity: 0;
+}
+
+.loaded {
+  opacity: 1;
+  transition: 1s;
+}
+

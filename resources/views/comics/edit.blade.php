@@ -33,8 +33,8 @@
           <label class="d-block" for="type">Tipo</label>
           <select required class="form-select d-block" name="type" id="type">
             <option selected>Scegli un Tipo</option>
-            <option value="comic_book">Comic Book</option>
-            <option value="grapich_novel">Grapich Novel</option>
+            <option value="Comic Book">Comic Book</option>
+            <option value="Grapic Novel">Grapic Novel</option>
           </select>
         </div>
         

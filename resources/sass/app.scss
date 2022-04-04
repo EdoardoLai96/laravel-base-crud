@@ -9,3 +9,17 @@
 
 // Font Awesome
 @import "node_modules/font-awesome/scss/font-awesome.scss";
+
+
+.fadein {
+    opacity: 0;
+    // -moz-transition: opacity 1.5s;
+    // -webkit-transition: opacity 1.5s;
+    // -o-transition: opacity 1.5s;
+    // transition: opacity 1.5s;
+}
+
+.loaded {
+    opacity: 1;
+    transition: 1s;
+}

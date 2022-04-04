@@ -9,7 +9,7 @@
     <title> @yield('PageTitle') </title>
 </head>
 
-<body>
+<body >
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -24,4 +24,6 @@
 
     @yield('content')
 </body>
+
+<script src="{{asset('js/app.js')}}"> </script>
 </html>
