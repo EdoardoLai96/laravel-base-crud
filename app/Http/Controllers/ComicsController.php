@@ -99,11 +99,12 @@ class ComicsController extends Controller
         $data = $request->all();
 
         $request->validate([
-            'title' =>'required|unique:posts|max:255',
-            'description' =>'required|unique:posts|max:255',
-            'price' =>'required|unique:posts|numeric|min:1',
-            'series' =>'required|unique:posts|max:255',
-            'sale_date' =>'required|unique:date|',
+            'title' =>'required|max:255',
+            'description' =>'required|max:1000',
+            'thumb' =>'required|url|max:255',
+            'price' =>'required|numeric|min:1',
+            'series' =>'required|max:255',
+            'sale_date' =>'required|date|',
         ]);
 
 
