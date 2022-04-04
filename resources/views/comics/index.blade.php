@@ -41,8 +41,17 @@
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->sale_date}}</td>
 
-                        <td>
-                            <a class="btn btn-primary" href="{{ route('comics.show', $comic->id) }}" role="button">Vedi</a>
+                        <td class="d-flex">
+                            <a class="btn btn-primary " href="{{ route('comics.show', $comic->id) }}" role="button">Vedi</a>
+                            <a class="btn btn-warning mx-2" href="{{ route('comics.edit', $comic->id) }}" role="button">Modifica</a>
+
+                            <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                               @csrf
+                                @method('DELETE') 
+
+                               <input class="btn btn-danger" type="submit" value="Elimina">
+                            </form>
+
                         </td>
 
                     </tr>

@@ -37,6 +37,15 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $request->validate([
+            'title' =>'required|max:255',
+            'description' =>'required|max:255',
+            'thumb' =>'required|url|max:255',
+            'price' =>'required|numeric|min:1',
+            'series' =>'required|max:255',
+            'sale_date' =>'required|date|',
+        ]);
+
 
         $newComic = new Comic();
 
@@ -73,9 +82,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit' , compact('comic'));
     }
 
     /**
@@ -85,9 +94,25 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'title' =>'required|unique:posts|max:255',
+            'description' =>'required|unique:posts|max:255',
+            'price' =>'required|unique:posts|numeric|min:1',
+            'series' =>'required|unique:posts|max:255',
+            'sale_date' =>'required|unique:date|',
+        ]);
+
+
+        $comic->update($data);
+
+        $comic->save();
+
+        return redirect()->route('comics.index');
+
     }
 
     /**
@@ -96,8 +121,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        
+        return redirect()->route('comics.index');
     }
 }
