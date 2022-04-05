@@ -44,14 +44,20 @@
                         <td>{{$comic->sale_date}}</td>
 
                         <td class="d-flex">
-                            <a class="btn btn-primary " href="{{ route('comics.show', $comic->id) }}" role="button"><i class="fa-solid fa-eye"></i></a>
-                            <a  id="edit_comic" class="btn btn-warning mx-2" href="{{ route('comics.edit', $comic->id) }}" role="button"><i class="fa-solid fa-pencil" ></i></a>
 
-                            <form id="delete_comic" action="{{route('comics.destroy', $comic->id)}}" method="post">
+                            <a class="btn btn-primary " href="{{ route('comics.show', $comic->id) }}" role="button">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+
+                            <a class="btn btn-warning mx-2" href="{{ route('comics.edit', $comic->id) }}" role="button">
+                                <i class="fa-solid fa-pencil" ></i>
+                            </a>
+
+                            <form  action="{{route('comics.destroy', $comic->id)}}" method="post">
                                @csrf
                                 @method('DELETE') 
                                 <span>
-                                    <button class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?')" type="submit" value=""> 
+                                    <button  class="btn btn-danger _delete_button"  type="submit" value=""> 
                                         <i class="fa-solid fa-trash-can"> </i>
                                     </button>
                                 </span>

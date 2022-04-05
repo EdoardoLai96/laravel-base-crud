@@ -41122,13 +41122,15 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var delete_comic = document.getElementById("delete_comic");
-var edit_comic = document.getElementById("edit_comic");
-edit_comic.addEventListener("click", function () {
-  if (!confirm('Sei sicuro di voler modificare questo fumetto?')) {
-    event.preventDefault();
-  }
-});
+var _delete_buttons = document.getElementsByClassName("_delete_button");
+
+for (var i = 0; i < _delete_buttons.length; i++) {
+  _delete_buttons[i].addEventListener("click", function (event) {
+    if (!confirm("Sei sicuro di voler eliminare questo fumetto?")) {
+      event.preventDefault();
+    }
+  });
+}
 
 /***/ }),
 

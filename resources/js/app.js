@@ -1,14 +1,19 @@
 require('./bootstrap');
 
 
-
-let delete_comic = document.getElementById("delete_comic")
-let edit_comic = document.getElementById("edit_comic")
+let _delete_buttons = document.getElementsByClassName("_delete_button")
 
 
 
-edit_comic.addEventListener("click",function(){
-    if(!confirm('Sei sicuro di voler modificare questo fumetto?')){
-        event.preventDefault();
-    }
-})
+
+
+
+
+
+for(let i = 0; i < _delete_buttons.length; i++){
+    _delete_buttons[i].addEventListener("click", function(event){
+        if(!confirm("Sei sicuro di voler eliminare questo fumetto?")){
+            event.preventDefault();
+        }
+    })
+}
